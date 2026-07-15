@@ -1,0 +1,377 @@
+<title>52 свидания в Екатеринбурге</title>
+<style>
+:root{
+  --bg:#F6F3F4; --card:#FFFFFF; --ink:#231A1F; --muted:#7D6E75;
+  --accent:#B0345C; --accent-ink:#8E2648; --accent-soft:#F6E4EC;
+  --line:#E5DCE0; --chip:#F0EAED; --gold:#9A7B2D;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#191316; --card:#241C20; --ink:#F0E7EB; --muted:#A6949C;
+    --accent:#E36A93; --accent-ink:#F08BAC; --accent-soft:#3A252E;
+    --line:#3A2F34; --chip:#2E2529; --gold:#D4B36A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#191316; --card:#241C20; --ink:#F0E7EB; --muted:#A6949C;
+  --accent:#E36A93; --accent-ink:#F08BAC; --accent-soft:#3A252E;
+  --line:#3A2F34; --chip:#2E2529; --gold:#D4B36A;
+}
+:root[data-theme="light"]{
+  --bg:#F6F3F4; --card:#FFFFFF; --ink:#231A1F; --muted:#7D6E75;
+  --accent:#B0345C; --accent-ink:#8E2648; --accent-soft:#F6E4EC;
+  --line:#E5DCE0; --chip:#F0EAED; --gold:#9A7B2D;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,sans-serif;margin:0;line-height:1.5}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 80px}
+header{margin:18px 0 26px}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;color:var(--accent);font-weight:600}
+h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(1.9rem,4.5vw,3rem);margin:.15em 0 .1em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--accent)}
+.sub{color:var(--muted);max-width:62ch;margin:0}
+.controls{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.controls .grp{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-right:2px}
+button.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 13px;font-size:.85rem;cursor:pointer}
+button.chip:hover{border-color:var(--accent)}
+button.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+#q{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:.9rem;min-width:180px}
+#q:focus{outline:2px solid var(--accent);outline-offset:1px}
+button.draw{margin-left:auto;background:var(--accent);color:#fff;border:none;border-radius:999px;padding:8px 18px;font-size:.9rem;cursor:pointer;font-weight:600}
+button.draw:hover{background:var(--accent-ink)}
+.count{color:var(--muted);font-size:.85rem;margin:14px 2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;display:flex;flex-direction:column;gap:10px;position:relative}
+.card.hl{outline:3px solid var(--accent);outline-offset:2px}
+.card h3{margin:0;font-size:1.02rem;line-height:1.35;font-weight:600;padding-right:52px}
+.num{position:absolute;top:14px;right:16px;font-family:Georgia,serif;font-style:italic;font-size:1.5rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.meta{display:flex;gap:6px;flex-wrap:wrap}
+.meta span{background:var(--chip);border-radius:6px;padding:2px 9px;font-size:.74rem;color:var(--muted);white-space:nowrap}
+.meta .cost{background:var(--accent-soft);color:var(--accent-ink);font-weight:600}
+.places{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.places li{border-left:2px solid var(--accent-soft);padding-left:10px;font-size:.87rem}
+.places .pn{font-weight:600}
+.places .pi{color:var(--muted)}
+.places a{color:var(--accent-ink);text-decoration:none;border-bottom:1px dotted var(--accent-ink)}
+.places a:hover{border-bottom-style:solid}
+.places a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cond{font-size:.8rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:auto}
+.cond b{color:var(--ink);font-weight:600}
+.home-note{font-size:.85rem;color:var(--muted);font-style:italic}
+table{border-collapse:collapse;width:100%;font-size:.85rem}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);position:sticky;top:0;background:var(--card)}
+td:first-child{font-variant-numeric:tabular-nums;font-weight:600;color:var(--accent)}
+td a{color:var(--accent-ink)}
+footer{margin-top:44px;color:var(--muted);font-size:.8rem;max-width:75ch}
+@media (prefers-reduced-motion: no-preference){
+  .card{transition:transform .15s ease}
+  .card:hover{transform:translateY(-2px)}
+}
+</style>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Колода «Наше приключение» · Екатеринбург</div>
+  <h1>52 свидания — <em>вся колода</em> с местами и ценами</h1>
+  <p class="sub">Каждая карточка колоды привязана к конкретным местам Екатеринбурга: ссылки, ориентир цены на двоих и условия. Цены собраны поиском в июле 2026 — перед походом сверяйтесь по ссылке.</p>
+</header>
+
+<div class="controls">
+  <div class="grp"><span class="lbl">Формат</span>
+    <button class="chip on" data-f="all">Все</button>
+    <button class="chip" data-f="h">Дома</button>
+    <button class="chip" data-f="o">Вне дома</button>
+  </div>
+  <div class="grp"><span class="lbl">Бюджет</span>
+    <button class="chip on" data-b="all">Любой</button>
+    <button class="chip" data-b="free">0 ₽</button>
+    <button class="chip" data-b="low">до 1500 ₽</button>
+    <button class="chip" data-b="mid">1500–4000 ₽</button>
+    <button class="chip" data-b="high">4000 ₽+</button>
+  </div>
+  <div class="grp"><span class="lbl">Вид</span>
+    <button class="chip on" data-v="cards">Карточки</button>
+    <button class="chip" data-v="table">Таблица</button>
+  </div>
+  <div class="grp"><span class="lbl">Порядок</span>
+    <button class="chip on" data-s="num">По номеру</button>
+    <button class="chip" data-s="draw">Как вытягивали</button>
+  </div>
+  <input id="q" type="search" placeholder="Поиск: баня, каток, вино…">
+  <button class="draw" id="draw">🎴 Вытянуть карточку</button>
+</div>
+
+<p class="count" id="count"></p>
+<div class="grid" id="grid"></div>
+<div class="tblwrap" id="tbl" style="display:none"></div>
+
+<footer>
+  Бюджет «на двоих» — ориентир по данным открытых источников (июль 2026): сайты заведений, агрегаторы, афиши. Рейтинги смотрите по ссылке «карта» — там всегда актуальная оценка Яндекс.Карт. Карточки «дома» денег почти не требуют — только продукты и реквизит.
+</footer>
+</div>
+
+<script>
+const Y = n => 'https://yandex.ru/maps/54/yekaterinburg/search/' + encodeURIComponent(n);
+const CARDS = [
+{n:1,t:'Гастрономический тур: закуски → горячее → десерт в трёх разных местах',f:'o',time:'3–4 ч',bud:'₽₽–₽₽₽',cost:'4000–8000 ₽',cat:'high',places:[
+ {name:'Momo pan asian kitchen',info:'гастробар, топ WhereToEat — закуски',url:Y('Momo Екатеринбург')},
+ {name:'«Итальянцы»',info:'паста и римская пицца — горячее',url:Y('Итальянцы ресторан Екатеринбург')},
+ {name:'Engels',info:'бельгийские вафли и кофе — десертный финал',url:Y('Engels кофейня Екатеринбург')}],
+ cond:'Маршрут по центру пешком. В пт–сб бронируйте столики заранее. Гид по заведениям: <a href="https://greatlist.ru/en/ekb/">GreatList</a>'},
+{n:2,t:'Приготовить пиццу вместе (итальянская, римская или в форме сердца)',f:'h',time:'1–2 ч',bud:'₽',cost:'700–1200 ₽ (продукты)',cat:'low',places:[],cond:'Дома. Рецепты — по QR-коду на коробке колоды. Продукты: тесто, моцарелла, томаты, начинка по вкусу'},
+{n:3,t:'Тир или урок стрельбы («Лара Крофт» / «Рэмбо»)',f:'o',time:'1–2 ч',bud:'₽–₽₽',cost:'1500–5000 ₽',cat:'mid',places:[
+ {name:'СТК «Спарта»',info:'боевой тир, 20 видов оружия, от 600 ₽',url:'https://tirekb.ru/'},
+ {name:'СК «Точка»',info:'тренировка с инструктором от 4300 ₽/чел',url:'https://shootingdotclub.ru/'},
+ {name:'Тир «Робин Гуд»',info:'лук, арбалет, пневматика — бюджетно',url:Y('тир Робин Гуд Екатеринбург')}],
+ cond:'<b>18+, нужен паспорт</b>, запись заранее. Огнестрел дороже, лук/пневматика — дешевле'},
+{n:4,t:'Вечер настольных игр (+ пицца или роллы в доставке)',f:'h',time:'1–2 ч',bud:'₽',cost:'1000–2500 ₽',cat:'mid',places:[],cond:'Дома. «Я никогда не», «Элиас», «Монополия», «Дженга». Можно позвать пары друзей'},
+{n:5,t:'Спа-день вдвоём (салон или домашнее спа)',f:'b',time:'3–4 ч',bud:'₽–₽₽',cost:'6000–13500 ₽ (салон) / ~1000 ₽ (дома)',cat:'high',places:[
+ {name:'Sunrita',info:'балийские парные программы, отдельная комната с ванной',url:'https://sunrita.ru/uslugi/dlya-par.html'},
+ {name:'Комплекс «ЮГА»',info:'«Идеальное свидание», 120 мин — 13 500 ₽ на двоих',url:Y('ЮГА спа Екатеринбург')},
+ {name:'СИАМ Oriental SPA',info:'бунгало на 20 этаже отеля 5*, бассейн и хаммам',url:Y('СИАМ спа Екатеринбург')}],
+ cond:'Запись за несколько дней. Домашний вариант: соли, маски, свечи, массаж друг другу — почти бесплатно'},
+{n:6,t:'Лепка из пластилина: одинаковые фигурки вслепую',f:'h',time:'1–2 ч',bud:'₽',cost:'300–600 ₽',cat:'low',places:[],cond:'Дома. Пластилин из «Леонардо»/Ozon, примеры фигурок — Pinterest. Показ на «раз-два-три»!'},
+{n:7,t:'Научиться новому вместе: гончарный круг, живопись, парфюм, свечи',f:'b',time:'3–4 ч',bud:'₽–₽₽',cost:'3500–6000 ₽',cat:'mid',places:[
+ {name:'Гончарная студия №1',info:'свидание за кругом: 3500 ₽ (будни) / 4500 ₽ (вечер, вых.) на двоих',url:Y('Гончарная студия №1 Екатеринбург')},
+ {name:'Мастерская «Огни»',info:'керамические свидания и воркшопы',url:'https://ogniceramics.ru/'},
+ {name:'Julivern',info:'гончарное свидание ~5990 ₽ с обжигом изделий',url:'https://julivern.ru/pottery-date'}],
+ cond:'Запись заранее, одежда, которую не жалко. Изделия отдают после обжига через 2–3 недели'},
+{n:8,t:'Вечер детских фотоальбомов и историй детства',f:'h',time:'1–2 ч',bud:'0',cost:'0 ₽',cat:'free',places:[],cond:'Дома. Достаньте альбомы или откройте детские фото в телефоне, задавайте вопросы'},
+{n:9,t:'Урок парных танцев (сальса, бачата)',f:'b',time:'1–2 ч',bud:'₽–₽₽',cost:'600–2200 ₽',cat:'low',places:[
+ {name:'MaxDance',info:'открытые уроки для новичков в центре, первые — бывают бесплатно',url:'https://max-dance.ru/'},
+ {name:'Академия 2dance',info:'бачата с нуля, разовое 300–1100 ₽/чел',url:'https://2dance-academy.ru/napravleniya/parnye/bachata/'}],
+ cond:'Сменная обувь. Дома — YouTube-урок бесплатно. Выучите «фирменный танец»!'},
+{n:10,t:'Зоопарк или океанариум',f:'o',time:'3–4 ч',bud:'₽₽',cost:'1000–3000 ₽',cat:'mid',places:[
+ {name:'Екатеринбургский зоопарк',info:'Мамина-Сибиряка, 189 · 500 ₽/чел',url:Y('Екатеринбургский зоопарк')},
+ {name:'Океанариум',info:'Щербакова, 2Б · комбо-билет 1350–1500 ₽/чел',url:'https://oceanarium-ekb.ru/price'}],
+ cond:'В океанариуме — шоу по расписанию, смотрите на сайте. Летом в зоопарке работают «Парк бабочек» и детская площадка'},
+{n:11,t:'Галерея искусств или музей (+ кофейня после)',f:'o',time:'3–4 ч',bud:'₽₽',cost:'800–2000 ₽',cat:'mid',places:[
+ {name:'Центр «Эрмитаж-Урал»',info:'Вайнера, 11 · выставки Государственного Эрмитажа',url:'https://i-z-o.art/visit/buy-tickets/'},
+ {name:'Ельцин Центр',info:'музей 90-х, арт-галерея, книжный',url:Y('Ельцин Центр')},
+ {name:'ЕМИИ',info:'Воеводина, 5 — каслинский павильон',url:'https://i-z-o.art/'}],
+ cond:'Билеты ~300–500 ₽/чел, аудиогид или экскурсия — дополнительно. По средам в некоторых музеях вечерние часы'},
+{n:12,t:'Литературный вечер: читать друг другу любимое',f:'h',time:'1–2 ч',bud:'₽',cost:'0–1000 ₽',cat:'free',places:[],cond:'Дома. Книги — библиотека (бесплатно), «Пиотровский» в Ельцин Центре или маркетплейс. Чай и спокойная музыка'},
+{n:13,t:'Стендап или комедийное шоу',f:'o',time:'2–3 ч',bud:'₽₽',cost:'1000–2400 ₽',cat:'mid',places:[
+ {name:'StandUp Spot',info:'Вайнера, 10 · билеты от 500 ₽',url:Y('StandUp Spot Екатеринбург')},
+ {name:'Бар «Ставников»',info:'открытые микрофоны от 300 ₽',url:Y('Ставников бар Екатеринбург')},
+ {name:'Афиша стендапа',info:'все концерты города',url:'https://gostandup.ru/ekaterinburg/events'}],
+ cond:'<b>18+</b>. Столики у сцены бронируйте заранее; после — прогулка с кофе по Вайнера'},
+{n:14,t:'Верховая езда или конная прогулка (old money)',f:'o',time:'2–3 ч',bud:'₽₽',cost:'7000–9000 ₽',cat:'high',places:[
+ {name:'ЗК «Белая лошадь»',info:'Кадниково, ~35 км · школа верховой езды и прогулки',url:'https://www.whorse.ru/konnyj-klub/verhovaa-ezda/'},
+ {name:'КК «Дзержинский»',info:'урок/прогулка 3500 ₽/ч, 2 ч — 7000 ₽',url:'https://konnyiprokat.ru/prices/'},
+ {name:'Школа «Гармония»',info:'прогулка 60 мин — 4000 ₽',url:'https://gar-koni.ru/prices'}],
+ cond:'<b>Бронь обязательна, нужна машина</b>. Одежда по погоде, штаны, обувь с каблучком. Вес всадника обычно до 90–100 кг'},
+{n:15,t:'Кулинарный мастер-класс (или новый рецепт дома)',f:'b',time:'2–3 ч',bud:'₽–₽₽',cost:'6500–10000 ₽ (студия) / продукты (дома)',cat:'high',places:[
+ {name:'911 Свиданий',info:'кулинарный МК для двоих — 6500 ₽, 1,5–2,5 ч',url:'https://f911romantic.ru/product/kulinarnyj-master-klass-dlya-dvoih/'},
+ {name:'«Игра Столов»',info:'кулинарные свидания от 10 000 ₽',url:Y('Игра Столов кулинарная студия Екатеринбург')},
+ {name:'«ЭТО ПРОСТО»',info:'вдвоём готовите 3 блюда с шефом',url:'https://eto-prosto.com/'}],
+ cond:'Запись за несколько дней. Дома: YouTube-урок + продукты — почти бесплатно'},
+{n:16,t:'Совместная тренировка: батуты, скалодром, бокс, зал',f:'o',time:'2–3 ч',bud:'₽₽',cost:'1300–2000 ₽',cat:'mid',places:[
+ {name:'RAZGON',info:'крупнейший батутный парк Урала: безлимит будни 1000 ₽, час в вых. 650 ₽',url:'https://razgon-neonpark.ru/'},
+ {name:'«Энергия Высоты»',info:'скалодром и верёвочный парк',url:Y('Энергия Высоты Екатеринбург')},
+ {name:'«Улёт» (Радуга Парк)',info:'батуты 600 ₽/2 ч будни',url:Y('батутный парк Улёт Екатеринбург')}],
+ cond:'Спортивная одежда, носки-нескользяшки (продают на месте). Зимой альтернатива — сноуборд на Уктусе'},
+{n:17,t:'Тур по барам и винотекам: напитки из фильмов',f:'o',time:'3–4 ч',bud:'₽₽',cost:'3000–6000 ₽',cat:'high',places:[
+ {name:'«Сплетни»',info:'авторские коктейли — здесь заказывайте «взболтать, но не смешивать»',url:Y('Сплетни бар Екатеринбург')},
+ {name:'БИО ШМИО',info:'винный бар: биодинамика и натуральные вина',url:Y('БИО ШМИО Екатеринбург')},
+ {name:'Dolce',info:'самая маленькая винотека России, 14 мест',url:Y('Dolce винотека Екатеринбург')}],
+ cond:'<b>18+</b>. Коктейль 500–800 ₽, бокал 400–700 ₽. Пт–сб многолюдно — начинайте пораньше. Такси домой!'},
+{n:18,t:'Прогулка под звёздами или планетарий',f:'o',time:'1–2 ч',bud:'₽',cost:'0–600 ₽',cat:'low',places:[
+ {name:'Планетарий (Музей радио)',info:'взрослый 300 ₽, сеансы по записи, ср–вс',url:Y('планетарий Екатеринбург')},
+ {name:'Шарташские каменные палатки',info:'тёмное небо недалеко от города — лето',url:Y('Шарташские каменные палатки')}],
+ cond:'Летом: одеяло, термос, приложение-карта неба. Зимой — планетарий (пн–вт выходной)'},
+{n:19,t:'Караоке с друзьями-парами: шоу «Голос»',f:'b',time:'2–3 ч',bud:'₽–₽₽',cost:'4000–6000 ₽ (комната на компанию)',cat:'high',places:[
+ {name:'Karaoke PLAY',info:'приватные комнаты в центре, предоплата = 1 час',url:'https://karaoke-play.ru/'},
+ {name:'«Секретные материалы»',info:'комнаты от 2000 ₽/час',url:Y('Секретные материалы караоке Екатеринбург')},
+ {name:'MALINA',info:'Ленина, 56 · мин. бронь 2 часа',url:'https://malina.in/'}],
+ cond:'Бронь на вечер обязательна; цена делится на компанию — вчетвером-вшестером выходит недорого. Дома — бесплатные караоке-версии на YouTube'},
+{n:20,t:'Пазлы или лего: романтический вечер сборки',f:'h',time:'3–4 ч',bud:'₽–₽₽',cost:'500–2000 ₽',cat:'low',places:[],cond:'Дома. Пазл 1000+ деталей или лего-набор; соревнование: кто быстрее соберёт свою половину'},
+{n:21,t:'Боулинг или бильярд + игровые автоматы',f:'o',time:'2–3 ч',bud:'₽₽',cost:'1200–2500 ₽',cat:'mid',places:[
+ {name:'Боулинг F1',info:'самый бюджетный: 600–850 ₽/ч будни, 1200–1400 ₽/ч вых.',url:Y('боулинг F1 Екатеринбург')},
+ {name:'«Спорт-боулинг»',info:'Блюхера, 58 · 16 дорожек, 1350/2150 ₽/ч',url:'https://sport-bowling.ru/'},
+ {name:'РЦ «Луна»',info:'22 дорожки + бильярд + автоматы + каток в одном месте',url:'https://www.luna66.ru/'}],
+ cond:'Обувь дают на месте. Приз победителю — поцелуй, по правилам карточки!'},
+{n:22,t:'Катание на коньках (или роликах летом)',f:'o',time:'1–2 ч',bud:'₽–₽₽',cost:'600–1000 ₽',cat:'low',places:[
+ {name:'Каток «Айсберг» (РЦ «Луна»)',info:'крытый, круглый год: вход 150–250 ₽ + коньки 150 ₽',url:'https://www.luna66.ru/services/katok'},
+ {name:'«РМК Зима» и ЦПКиО (зимой)',info:'атмосферные уличные катки',url:'https://www.uralweb.ru/cityguide/ekaterinburg/6010-katki-ekaterinburga-2026-gde-pokatatsya-besplatno.html'}],
+ cond:'Перчатки обязательны. Летом вариант — ролики в ЦПКиО (прокат от 100 ₽/ч)'},
+{n:23,t:'Туристы в своём городе: достопримечательности и сувениры',f:'o',time:'3–4 ч',bud:'₽–₽₽',cost:'1200–2500 ₽',cat:'mid',places:[
+ {name:'Красная линия',info:'бесплатный пеший маршрут: 6,5 км, 35 объектов центра',url:'https://redline.ekburg.ru'},
+ {name:'Смотровая «Высоцкий»',info:'186 м, 600 ₽/чел, музей Высоцкого в подарок',url:'https://visotsky-e.ru/view'},
+ {name:'Храм-на-Крови и Плотинка',info:'обязательная «туристическая» программа',url:Y('Плотинка Екатеринбург')}],
+ cond:'Купите магнитики и открытки, как настоящие туристы. Удобная обувь!'},
+{n:24,t:'Каяк, каноэ, сап-борд или лодка',f:'o',time:'2–3 ч',bud:'₽₽',cost:'1400–5000 ₽',cat:'mid',places:[
+ {name:'UralSurf',info:'Кирова, 40Б (ВИЗ) · сап от 700 ₽/ч',url:'https://uralstrip.ru/rent-sup-ekb/'},
+ {name:'Сап-клуб «Огород»',info:'сапы и каяки от 750 ₽/ч, сплавы по Исети',url:'https://ogorod.style/'},
+ {name:'Сап-прогулка на закате',info:'организованная, 5000 ₽ до 4 человек',url:'https://experience.tripster.ru/experience/47104/'}],
+ cond:'<b>Только лето</b> (июнь–сентябрь). Сменная одежда, телефон в аквачехол. Новичкам дают инструктаж'},
+{n:25,t:'Званый ужин: пригласить пары друзей домой',f:'h',time:'3–4 ч',bud:'₽₽',cost:'2000–4000 ₽ (стол)',cat:'mid',places:[],cond:'Дома. Настольные игры, смешные истории отношений, общие фото на память'},
+{n:26,t:'Шопинг: «неделя моды» в примерочных',f:'o',time:'2–3 ч',bud:'₽₽–₽₽₽',cost:'по бюджету покупок',cat:'mid',places:[
+ {name:'ТРЦ «Гринвич»',info:'8 Марта, 46 · крупнейший в центре',url:'https://grinvich.com/'},
+ {name:'Veer Mall',info:'Космонавтов, 108д · рейтинг 4.8★ (2ГИС)',url:'https://2gis.ru/ekaterinburg/firm/70000001035544360'}],
+ cond:'Подбирайте образы друг другу — от шуточных до стильных, фото из примерочной обязательно'},
+{n:27,t:'Купить парные вещи или аксессуары (стиль 00-х)',f:'o',time:'3–4 ч',bud:'₽₽',cost:'2000–6000 ₽',cat:'mid',places:[
+ {name:'ТРЦ «Гринвич»',info:'масс-маркет для парных луков',url:'https://grinvich.com/'},
+ {name:'Veer Mall',info:'альтернатива на севере города',url:'https://2gis.ru/ekaterinburg/firm/70000001035544360'}],
+ cond:'Парные футболки, кепки или браслеты — вещь должна отражать стиль вашей пары'},
+{n:28,t:'Смотровая площадка или видовой ресторан',f:'o',time:'2–3 ч',bud:'₽–₽₽',cost:'1200–2500 ₽ (смотровая) / 5000 ₽+ (ужин)',cat:'mid',places:[
+ {name:'Смотровая «Высоцкий»',info:'52 этаж, 600 ₽/чел; VIP-кабинка 2500 ₽/1,5 ч на двоих с игристым',url:'https://visotsky-e.ru/view'},
+ {name:'Ресторан «Вертикаль»',info:'51 этаж, панорама + живая музыка вечером',url:Y('Вертикаль ресторан Высоцкий')},
+ {name:'Метеогорка',info:'бесплатная видовая точка города',url:Y('Метеогорка Екатеринбург')}],
+ cond:'Лучшее время — за час до заката. Смотровая работает 11:00–22:00'},
+{n:29,t:'Киновечер: комфорт-зал, open-air или дома',f:'b',time:'2–3 ч',bud:'₽–₽₽',cost:'800–2500 ₽',cat:'mid',places:[
+ {name:'«Пассаж Синема»',info:'центр, билеты от 139 ₽',url:'https://passage-cinema.ru/'},
+ {name:'Мягкий кинотеатр (Веер Молл)',info:'кресла-диваны с регулировкой',url:Y('Мягкий кинотеатр Веер Екатеринбург')},
+ {name:'«Дом кино»',info:'авторское и фестивальное кино',url:'https://domkino-ekb.ru/'}],
+ cond:'Дома: попкорн, начос, газировка — и фильм, который оба ещё не видели'},
+{n:30,t:'«Любовь с первого взгляда»: новые образы + встреча в ресторане',f:'o',time:'1–2 ч',bud:'₽₽',cost:'3000–5000 ₽',cat:'high',places:[
+ {name:'The Barbara',info:'средний чек ~1850 ₽/чел',url:Y('The Barbara Екатеринбург')},
+ {name:'Подборка романтических мест',info:'KudaGo: лучшие места для ужина',url:'https://ekb.kudago.com/list/luchshie-mesta-dlya-romanticheskogo-uzhina-ekb/'}],
+ cond:'Смените причёску/стиль и «познакомьтесь» заново за столиком. Бронь на вечер'},
+{n:31,t:'Спортивный матч: хоккей, футбол или фан-бар',f:'b',time:'3–4 ч',bud:'₽–₽₽',cost:'0 (бар) – 3600+ ₽ (арена)',cat:'mid',places:[
+ {name:'«Автомобилист» · УГМК-Арена',info:'КХЛ, билеты от 1800 ₽',url:'https://ugmk-arena.ru/'},
+ {name:'ФК «Урал» · Екатеринбург Арена',info:'футбол, билеты от ~500 ₽',url:'https://ural-arena.ru/'}],
+ cond:'Сезон КХЛ: сентябрь–апрель. Вариант без билетов — трансляция в спорт-баре или дома'},
+{n:32,t:'Лазертаг или картинг с парами друзей',f:'o',time:'3–4 ч',bud:'₽₽',cost:'1500–4000 ₽ (на пару)',cat:'mid',places:[
+ {name:'Turba Karting',info:'прокатные заезды, до 11 человек на треке',url:'https://turbakarting.ru/razoviye-zaezdi'},
+ {name:'Лазертаг «Дуэль»',info:'VICTORY Парк · 30 мин 350 ₽, час 500 ₽/чел',url:'https://laser-battle.ru/lasertag/ekaterinburg/'},
+ {name:'KartKlub',info:'ещё один крытый картинг',url:'https://kartklub.ru/prokat/'}],
+ cond:'Соберите 2–3 пары и делитесь на команды. На картинг — закрытая обувь, инструктаж на месте'},
+{n:33,t:'Встретить рассвет или проводить закат вместе',f:'b',time:'1–2 ч',bud:'0',cost:'0 ₽',cat:'free',places:[
+ {name:'Метеогорка',info:'одна из высших точек города, вид на центр',url:Y('Метеогорка Екатеринбург')},
+ {name:'Набережная и Ельцин Центр',info:'закат на фоне башни «Исеть»',url:Y('набережная городского пруда Екатеринбург')}],
+ cond:'Термос с чаем, плед. Время рассвета/заката проверьте в погодном приложении. Дома — вид из окна и бокал вина'},
+{n:34,t:'Ресторан: выбрать блюда друг для друга',f:'b',time:'1–2 ч',bud:'₽₽',cost:'3000–5000 ₽',cat:'high',places:[
+ {name:'Подборка ТоМесто',info:'рестораны для свидания с брони столика',url:'https://tomesto.ru/ekaterinburg/occasions/svidanie'},
+ {name:'«Своя Компания»',info:'бюджетный вариант сети «мягких ресторанов»',url:Y('Своя Компания Екатеринбург')}],
+ cond:'Правило: каждый заказывает для второй половинки. Дома-вариант — заказать друг другу доставку вслепую'},
+{n:35,t:'Видеоблог «Один день из нашей жизни»',f:'o',time:'весь день',bud:'0',cost:'0 ₽',cat:'free',places:[],cond:'Телефон + любой бесплатный видеоредактор (CapCut). Снимайте планы на день, эмоции и монтируйте фильм о себе'},
+{n:36,t:'Контактный зоопарк или ферма альпак',f:'o',time:'2–3 ч',bud:'₽–₽₽',cost:'2000–4000 ₽',cat:'mid',places:[
+ {name:'Парк альпак «Симба»',info:'у Шарташского лесопарка · альпаки, ламы, лани',url:'https://ekaterinburg.parkalpak.ru/'},
+ {name:'«Лесная братва»',info:'Уктус, Зимняя 27/7 · олени и альпака, вход 1000 ₽',url:Y('Лесная братва контактный зоопарк Екатеринбург')},
+ {name:'Альпака-парк (Космакова)',info:'~50 км, взрослый 1970 ₽, ресторан с видом на ферму',url:Y('Альпака парк Космакова')}],
+ cond:'Корм покупается на месте (200–400 ₽). До загородных ферм нужна машина. Одежда, которую можно испачкать'},
+{n:37,t:'Совместная йога-хатха',f:'b',time:'1–2 ч',bud:'₽–₽₽',cost:'0 (дома) – 1800 ₽ (студия)',cat:'low',places:[
+ {name:'Центр «Хануман»',info:'от 550 ₽/занятие',url:Y('Хануман йога Екатеринбург')},
+ {name:'«Йогалактика»',info:'разовое занятие 900 ₽',url:Y('Йогалактика Екатеринбург')}],
+ cond:'Новичкам дома — «Сурья Намаскар» по YouTube. Коврики, удобная одежда, не есть за 2 часа'},
+{n:38,t:'Рыбалка (зимой — рыбный ресторан)',f:'o',time:'3–4 ч',bud:'₽₽',cost:'1500–3500 ₽',cat:'mid',places:[
+ {name:'Шабровский пруд',info:'10 км по Полевскому тракту · 600–1500 ₽ с уловом, удочка 300 ₽',url:Y('Шабровский пруд платная рыбалка')},
+ {name:'Фишпарк «Шайтанка»',info:'40 км · форель и осётр, поймал-отпустил',url:'https://fishpark66.ru/'}],
+ cond:'<b>Лето, нужна машина</b>. Беседки с мангалом 200–300 ₽/ч. Зимний вариант — рыбный ресторан или рынок и запечь рыбу в медовом маринаде дома'},
+{n:39,t:'Парная фотосессия или трендовые видео',f:'o',time:'2–3 ч',bud:'₽',cost:'900–1900 ₽/ч (студия)',cat:'mid',places:[
+ {name:'Laboratory',info:'850 м², 8 залов · от 1500 ₽/ч',url:Y('Laboratory фотостудия Екатеринбург')},
+ {name:'FOCUS ART',info:'от 900 ₽/ч в будни',url:Y('Focus Art фотостудия Екатеринбург')},
+ {name:'Каталог студий',info:'все фотостудии города',url:'https://photoplace.pro/ekaterinburg'}],
+ cond:'Референсы соберите в Pinterest заранее. С фотографом ~7500 ₽/ч; штатив + телефон — бесплатная альтернатива'},
+{n:40,t:'Карта желаний вдвоём',f:'h',time:'1–2 ч',bud:'₽',cost:'300–600 ₽',cat:'low',places:[],cond:'Дома. Ватман А1, клей, ножницы, старые журналы (или распечатки). Вырезайте картинки и фразы про общие мечты'},
+{n:41,t:'Русская баня на дровах',f:'o',time:'3–4 ч',bud:'₽₽',cost:'4000–7000 ₽ (2–3 часа)',cat:'high',places:[
+ {name:'«Русские бани» на Фруктовой',info:'1800 ₽/ч будни, 2300 ₽/ч пт–вс (до 4 чел)',url:Y('Русские бани Фруктовая Екатеринбург')},
+ {name:'Комплекс «Деревенька»',info:'от 1500 ₽/ч в будни днём',url:Y('банный комплекс Деревенька Екатеринбург')},
+ {name:'Ананьевские бани',info:'бани в лесу — атмосферно',url:Y('Ананьевские бани Екатеринбург')}],
+ cond:'Мин. аренда обычно 2–3 часа. Веники и шапочки — купить или взять на месте. Травяной чай после парения. Бронь на вечер за несколько дней'},
+{n:42,t:'Водная прогулка (зимой — аквапарк или термы)',f:'o',time:'3–4 ч',bud:'₽₽',cost:'800–5000 ₽',cat:'mid',places:[
+ {name:'Яхт-клуб «Коматек»',info:'Кирова, 40Б · прогулки на яхтах и катерах по ВИЗ-пруду',url:Y('яхт-клуб Коматек Екатеринбург')},
+ {name:'Лодки на Городском пруду',info:'~400–800 ₽/час — самый простой вариант',url:Y('прокат лодок городской пруд Екатеринбург')},
+ {name:'Термы «Баден-Баден Уктус»',info:'Зимняя, 23 · зимний вариант, утро+завтрак 1600 ₽',url:Y('Баден-Баден Уктус')}],
+ cond:'Яхтенная «кругосветка» по ВИЗ-пруду — 11 500 ₽ (до компании). Купальники для терм; в выходные термы дороже и многолюднее'},
+{n:43,t:'Приставка или компьютерный клуб',f:'b',time:'1–2 ч',bud:'₽',cost:'400–800 ₽',cat:'low',places:[
+ {name:'«Маяк Арена»',info:'Радищева, 33 · крупнейший клуб Урала: PS5, VR, автосимуляторы',url:Y('Маяк Арена Екатеринбург')},
+ {name:'PROVODA',info:'3 филиала · PS5 от 120 ₽/ч',url:Y('PROVODA компьютерный клуб Екатеринбург')}],
+ cond:'FIFA, Need for Speed, UFC — задача парней показать, что игры это весело. Дома — бесплатно'},
+{n:44,t:'Бармен и бариста: напитки-сюрпризы друг другу',f:'h',time:'1–2 ч',bud:'₽–₽₽',cost:'1000–2000 ₽ (ингредиенты)',cat:'low',places:[],cond:'Дома. Лимонады, какао с маршмеллоу, глинтвейн — рецепты по QR колоды. Снимите «дегустацию» на видео'},
+{n:45,t:'Мастер-класс по декору: тарелки, смола, вазы',f:'o',time:'1–2 ч',bud:'₽₽',cost:'3500–6000 ₽',cat:'mid',places:[
+ {name:'Гончарная студия №1',info:'тарелки и чашки своими руками, 3500–4500 ₽ на двоих',url:Y('Гончарная студия №1 Екатеринбург')},
+ {name:'Мастерская «Огни»',info:'керамика и интерьерный декор',url:'https://ogniceramics.ru/'},
+ {name:'Агрегатор МК',info:'эпоксидная смола, свечи, фигурки',url:'https://xpresent.ru/ekb/goncharnye-master-klassy'}],
+ cond:'Запись заранее. Готовое изделие — на полку как память о свидании'},
+{n:46,t:'Два романтических ужина: каждый готовит своё свидание',f:'b',time:'3–4 ч',bud:'₽₽–₽₽₽',cost:'4000–10000 ₽ (за два вечера)',cat:'high',places:[
+ {name:'Подборка ресторанов',info:'ТоМесто: для свидания',url:'https://tomesto.ru/ekaterinburg/occasions/svidanie'},
+ {name:'«Вертикаль» (51 этаж)',info:'если хочется «вау»-эффекта',url:Y('Вертикаль ресторан Высоцкий')}],
+ cond:'Приглашение по СМС за сутки: «Место. Время. Жду свою любовь на романтический ужин»'},
+{n:47,t:'Распечатать совместные фото: альбом или мудборд',f:'h',time:'1–2 ч',bud:'0',cost:'300–1500 ₽',cat:'low',places:[
+ {name:'NetPrint / фотосалоны города',info:'печать 10×15 от ~10–30 ₽/шт',url:Y('печать фотографий Екатеринбург')}],
+ cond:'Дома. Гирлянда с прищепками или рамка для любимого кадра — маркетплейс, ~300–500 ₽'},
+{n:48,t:'Исследовать город: ролики, велосипеды, самокаты (зимой — лыжи)',f:'o',time:'3–4 ч',bud:'₽₽',cost:'300–800 ₽',cat:'low',places:[
+ {name:'CleversClub (ЦПКиО)',info:'Мичурина, 235 · вело от 150 ₽/ч, ролики от 100 ₽/ч, зимой лыжи и тюбинги',url:Y('CleversClub прокат ЦПКиО Екатеринбург')},
+ {name:'Кикшеринг',info:'Whoosh/Яндекс — самокаты по всему городу',url:Y('прокат самокатов Екатеринбург')}],
+ cond:'Маршрут: ЦПКиО → набережная Исети → Плотинка. Зимой — лыжная база на Уктусе'},
+{n:49,t:'Светский выход: балет, опера, мюзикл или ледовое шоу',f:'o',time:'2–3 ч',bud:'₽₽–₽₽₽',cost:'1200–10000 ₽',cat:'high',places:[
+ {name:'«Урал Опера Балет»',info:'Ленина, 46а · билеты 400–5000 ₽, «Щелкунчик» от 1000 ₽',url:Y('Урал Опера Балет')},
+ {name:'Театр музкомедии',info:'мюзиклы и оперетта',url:Y('Свердловский театр музыкальной комедии')},
+ {name:'Афиша шоу и цирка',info:'ледовые шоу по сезону',url:'https://afisha.yandex.ru/yekaterinburg/circus_show'}],
+ cond:'<b>Билеты и бронь заранее</b>, дресс-код smart casual+. На балет лучшие места — амфитеатр/бельэтаж'},
+{n:50,t:'Рукописные любовные письма (открыть позже)',f:'h',time:'1–2 ч',bud:'0',cost:'0 ₽',cat:'free',places:[],cond:'Дома. Красивая бумага и конверты — по желанию. Обменяйтесь письмами за ужином или спрячьте до праздника'},
+{n:51,t:'Путешественники на уикенд: отель или загородный спа',f:'o',time:'весь день',bud:'₽₽₽',cost:'7000–27000 ₽+',cat:'high',places:[
+ {name:'Спа-отель «Раздолье»',info:'30 км · тур «Романтика»: номер + ужин при свечах + спа',url:Y('загородный клуб Раздолье Косулино')},
+ {name:'ЗК «Белая лошадь»',info:'романтический уикенд от 27 300 ₽ (пт–вс), бассейн и спа',url:'https://www.whorse.ru/otel/'},
+ {name:'DACHA',info:'загородный отель, коттедж от 7000 ₽/ночь',url:Y('DACHA загородный отель Екатеринбург')}],
+ cond:'Бронь за 1–2 недели, особенно на выходные. Городской вариант — Novotel с тарифом Love'},
+{n:52,t:'Концерт любимого исполнителя',f:'o',time:'2–3 ч',bud:'₽₽–₽₽₽',cost:'3000–10000 ₽',cat:'high',places:[
+ {name:'Афиша концертов',info:'Яндекс Афиша: все концерты города',url:'https://afisha.yandex.ru/yekaterinburg/concert'},
+ {name:'«Космос» и Дворец молодёжи',info:'главные концертные площадки',url:Y('ККТ Космос Екатеринбург')},
+ {name:'Ben Hall',info:'живая музыка в клубном формате, билеты дешевле',url:Y('Ben Hall Екатеринбург')}],
+ cond:'Билеты заранее — на популярных артистов разбирают за месяцы. На медленных песнях — вальс!'}
+];
+
+const FMT = {h:'🏠 дома', o:'🌳 вне дома', b:'🏠/🌳 дома или вне'};
+// порядок, в котором карточки вытягивались из колоды (по времени съёмки фото)
+const DRAW_ORDER = [33,22,34,32,24,49,2,17,25,43,21,15,20,18,44,51,39,1,23,27,5,28,9,10,19,36,41,13,40,45,50,38,48,47,3,37,35,14,30,4,46,11,7,52,42,16,31,29,26,8,6,12];
+const DRAW_POS = {}; DRAW_ORDER.forEach((n,i)=>DRAW_POS[n]=i+1);
+let fFmt='all', fBud='all', view='cards', q='', sort='num';
+
+function match(c){
+  if(fFmt==='h' && c.f==='o') return false;
+  if(fFmt==='o' && c.f==='h') return false;
+  if(fBud!=='all' && c.cat!==fBud) return false;
+  if(q){
+    const hay=(c.t+' '+c.cond+' '+c.places.map(p=>p.name+' '+p.info).join(' ')).toLowerCase();
+    if(!hay.includes(q)) return false;
+  }
+  return true;
+}
+function render(){
+  const list=CARDS.filter(match).slice().sort((a,b)=>sort==='draw'?DRAW_POS[a.n]-DRAW_POS[b.n]:a.n-b.n);
+  document.getElementById('count').textContent=`Показано карточек: ${list.length} из 52`;
+  const grid=document.getElementById('grid'), tbl=document.getElementById('tbl');
+  grid.style.display=view==='cards'?'grid':'none';
+  tbl.style.display=view==='table'?'block':'none';
+  if(view==='cards'){
+    grid.innerHTML=list.map(c=>`
+    <article class="card" id="card-${c.n}">
+      <div class="num">№${c.n}</div>
+      <h3>${c.t}</h3>
+      <div class="meta">
+        <span>${FMT[c.f]}</span><span>⏳ ${c.time}</span><span>${c.bud==='0'?'₽ 0':c.bud}</span>
+        <span class="cost">≈ ${c.cost}</span><span title="порядок вытягивания из колоды">🎴 ${DRAW_POS[c.n]}-я</span>
+      </div>
+      ${c.places.length?`<ul class="places">${c.places.map(p=>`<li><span class="pn">${p.name}</span> — <span class="pi">${p.info}</span> · <a href="${p.url}" target="_blank" rel="noopener">карта / сайт ↗</a></li>`).join('')}</ul>`:'<p class="home-note">Домашнее свидание — место не нужно, только реквизит.</p>'}
+      <p class="cond">${c.cond}</p>
+    </article>`).join('');
+  } else {
+    tbl.innerHTML=`<table><thead><tr><th>№</th><th>🎴</th><th>Идея</th><th>Место(а) в ЕКБ</th><th>Цена на двоих</th><th>Условия</th></tr></thead><tbody>${
+      list.map(c=>`<tr><td>${c.n}</td><td style="color:var(--muted);font-variant-numeric:tabular-nums">${DRAW_POS[c.n]}</td><td>${c.t}</td><td>${c.places.length?c.places.map(p=>`<a href="${p.url}" target="_blank" rel="noopener">${p.name}</a> <span style="color:var(--muted)">(${p.info})</span>`).join('<br>'):'дома'}</td><td style="white-space:nowrap">${c.cost}</td><td>${c.cond}</td></tr>`).join('')
+    }</tbody></table>`;
+  }
+}
+document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{fFmt=b.dataset.f;document.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x===b));render();});
+document.querySelectorAll('[data-b]').forEach(b=>b.onclick=()=>{fBud=b.dataset.b;document.querySelectorAll('[data-b]').forEach(x=>x.classList.toggle('on',x===b));render();});
+document.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{view=b.dataset.v;document.querySelectorAll('[data-v]').forEach(x=>x.classList.toggle('on',x===b));render();});
+document.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{sort=b.dataset.s;document.querySelectorAll('[data-s]').forEach(x=>x.classList.toggle('on',x===b));render();});
+document.getElementById('q').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();render();});
+document.getElementById('draw').onclick=()=>{
+  view='cards';document.querySelectorAll('[data-v]').forEach(x=>x.classList.toggle('on',x.dataset.v==='cards'));
+  fFmt='all';fBud='all';q='';document.getElementById('q').value='';
+  document.querySelectorAll('[data-f]').forEach(x=>x.classList.toggle('on',x.dataset.f==='all'));
+  document.querySelectorAll('[data-b]').forEach(x=>x.classList.toggle('on',x.dataset.b==='all'));
+  render();
+  const n=CARDS[Math.floor(Math.random()*CARDS.length)].n;
+  const el=document.getElementById('card-'+n);
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('hl'));
+  el.classList.add('hl');
+  el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
+};
+render();
+</script>
